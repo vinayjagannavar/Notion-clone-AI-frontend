@@ -1,4 +1,3 @@
-
 'use client'
 import NewDocumentButton from './NewDocumentButton'
 import {useCollection} from 'react-firebase-hooks/firestore';
