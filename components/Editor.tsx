@@ -47,6 +47,7 @@ function Editor() {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(()=>{
+        
         const yDoc = new Y.Doc();
         const yProvider = new LiveblocksYjsProvider(room, yDoc);
 

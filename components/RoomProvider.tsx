@@ -11,6 +11,7 @@ function RoomProvider({roomId, children} : {
     roomId: string;
     children: React.ReactNode;
 }) {
+    console.log("Connecting to room:", roomId);
   return (
     <RoomProviderWrapper
     id = {roomId}

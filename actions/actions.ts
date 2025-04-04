@@ -53,3 +53,48 @@ export async function deleteDocument(roomId : string){
         return {success : false};
     }
 }
+
+export async function inviteUserToDocument(roomId: string, email: string) {
+    //auth().protect(); // Ensure the user is authenticated
+  
+    console.log("inviteUserToDocument", roomId, email);
+  
+    try {
+      await admindb
+        .collection("users")
+        .doc(email)
+        .collection("rooms")
+        .doc(roomId)
+        .set({
+          userId: email,
+          role: "editor",
+          createdAt: new Date(),
+          roomId,
+        });
+
+        return { success: true };
+    } catch (error) {
+      console.error(error);
+      return { success: false };
+    }
+  }
+  
+  
+  export async function removeUserFromDocument(roomId: string, email: string){
+    //auth().protect();
+
+    console.log("removeUserFromDocument", roomId, email);
+
+    try{
+        admindb
+        .collection("users")
+        .doc(email)
+        .collection("rooms")
+        .doc(roomId)
+        .delete();
+        return {success : true};
+    } catch (error) {
+        console.error(error);
+        return {success : false};
+    }
+  }

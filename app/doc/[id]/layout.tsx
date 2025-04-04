@@ -1,15 +1,15 @@
 import RoomProvider from "@/components/RoomProvider";
-import { auth } from "@clerk/nextjs/server";
 
 export default async function DocLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { id: string };
+  params: Promise<{ id: string }>; // ✅ Note: Promise
 }) {
-  // Ensures `params` is awaited
-  const id = params.id;
+  const { id } = await params; // ✅ Await the params
+
+  
 
   return <RoomProvider roomId={id}>{children}</RoomProvider>;
 }

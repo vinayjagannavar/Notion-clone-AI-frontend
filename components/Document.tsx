@@ -8,12 +8,16 @@ import Editor from "./Editor";
 import useOwner from "@/lib/useOwner";
 import DeleteDocument from "./DeleteDocument";
 import InviteUsers from "./InviteUsers";
+import ManageUsers from "./ManageUsers";
+import Avatars from "./Avatars";
 
 function Document({id}: {id:string}) {
     const [input, setInput] = useState("");
     const [isUpdating, startTransition] = useTransition();
     const [data,loading, error] = useDocumentData(doc(db, "documents", id));
     const isOwner = useOwner();
+
+    //console.log("Owner",isOwner);
 
     useEffect(()=>{
         if(data) {
@@ -52,14 +56,16 @@ function Document({id}: {id:string}) {
                 {/* isOwner && InviteUser, DeleteDocument */}
             </form>
         </div>
-        <div>
+        <div className="flex max-w-6xl mx-auto justify-between items-center mb-5">
+            <ManageUsers />
             {/* Manage user */}
             {/* Avatar */}
+            <Avatars/>
         </div>
 
         <hr className="pb-10" />
             {/* Collaborative Editor */}
-            <Editor/>
+        <Editor/>
         
     </div>
   )

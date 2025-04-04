@@ -53,7 +53,6 @@ function Sidebar() {
                 const roomData = curr.data() as RoomDocument;
                 
                 if(roomData.role === "owner") {
-                    console.log("roomData:",roomData.role);
                     acc.owner.push({
                         id: curr.id,
                         ...roomData,
@@ -71,7 +70,9 @@ function Sidebar() {
                 editor: [],
             }
         )
+        console.log("grouped",grouped);
         setGroupedData(grouped);
+        console.log("GroupedData",groupedData);
 
     },[data])
 
@@ -94,9 +95,7 @@ function Sidebar() {
                         ))}
                     </>
                 )}
-            </div>
 
-            <div className='flex py-4 flex-col space-y-4 md:max-w-36'>
                 {groupedData.editor.length === 0? (
                     <h2 className='text-gray-500 font-semibold text-sm'>
                         No Documents found
@@ -106,7 +105,7 @@ function Sidebar() {
                         <h2 className='text-gray-500 font-semibold test-sm'>
                             Shared with me
                         </h2>
-                        {groupedData.owner.map((doc) => (
+                        {groupedData.editor.map((doc) => (
                             <SidebarOption key={doc.id} id={doc.id} href={`/doc/${doc.id}`} />
                         ))}
                     </>
