@@ -1,3 +1,4 @@
+'use client'
 import { FormEvent, useEffect, useState, useTransition } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button";

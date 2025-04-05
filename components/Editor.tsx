@@ -1,3 +1,4 @@
+'use client'
 import { useRoom,useSelf } from "@liveblocks/react/suspense";
 import { useEffect, useState } from "react";
 import * as Y from "yjs";

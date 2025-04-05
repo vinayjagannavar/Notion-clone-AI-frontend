@@ -1,6 +1,6 @@
 'use client'
 
-import { useMyPresence, useOthers } from "@liveblocks/react";
+import { useMyPresence, useOthers } from "@liveblocks/react/suspense";
 import { PointerEvent } from "react";
 import FollowPointer from "./FollowPointer";
 
@@ -24,13 +24,13 @@ function LiveCursorProvider({ children }: {
             onPointerLeave={handlePointerLeave}
         >
             {others
-                .filter((other) => other.presence?.cursor)
-                .map((other) => (
+                .filter((other) => other.presence.cursor !== null)
+                .map(({connectionId, presence, info}) => (
                     <FollowPointer
-                        key={other.connectionId}
-                        info={other.info}
-                        x={other.presence!.cursor!.x}
-                        y={other.presence!.cursor!.y}
+                        key={connectionId}
+                        info={info}
+                        x={presence.cursor!.x}
+                        y={presence.cursor!.y}
                     />
                 ))}
             {children}

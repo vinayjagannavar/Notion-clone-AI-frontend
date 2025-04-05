@@ -1,12 +1,16 @@
 import { admindb } from "@/firebase-admin";
-import liveblocks from "@/lib/liveBlock";
+import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest) {
-    const { userId, redirectToSignIn, sessionClaims} = await auth()
+    // const { userId, redirectToSignIn, sessionClaims} = await auth()
 
-    if (!userId) return redirectToSignIn()
+    // if (!userId) return redirectToSignIn()
+
+    //auth().protect();
+
+    const {sessionClaims} = await auth()
 
     const { room } = await req.json();
 
