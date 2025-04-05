@@ -10,6 +10,7 @@ import "@blocknote/shadcn/style.css"
 import stringToColor from "@/lib/stringToColor";
 import { useCreateBlockNote} from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/shadcn";
+import TranslateDocument from "./TranslateDocument";
 
 type EditorProps = {
     doc: Y.Doc;
@@ -80,6 +81,7 @@ function Editor() {
         <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-2 justify-end mb-10">
                 {/* TranslateDocument AI */}
+                <TranslateDocument doc={doc} />
                 {/* ChatToDocument AI */}
 
                 {/* Dark Mode */}

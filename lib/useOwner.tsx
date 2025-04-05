@@ -34,7 +34,7 @@ function useOwner() {
       setIsOwner(true);
     }
     }
-  },[])
+  },[user, usersInRoom])
 
   return isOwner;
 }

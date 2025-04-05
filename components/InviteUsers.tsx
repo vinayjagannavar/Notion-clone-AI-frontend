@@ -75,9 +75,6 @@ function InviteUsers() {
 
             </DialogContent>
         </Dialog>
-
-
-
     )
 }
 export default InviteUsers

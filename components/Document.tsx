@@ -18,7 +18,7 @@ function Document({id}: {id:string}) {
     const [data,loading, error] = useDocumentData(doc(db, "documents", id));
     const isOwner = useOwner();
 
-    //console.log("Owner",isOwner);
+    console.log("Owner",isOwner);
 
     useEffect(()=>{
         if(data) {
