@@ -42,6 +42,8 @@ function Sidebar() {
     )
 
     useEffect(()=>{
+
+        console.log("Data changed:", data);
         
         if(!data) return;
 

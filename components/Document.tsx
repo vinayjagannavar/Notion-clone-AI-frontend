@@ -22,6 +22,7 @@ function Document({id}: {id:string}) {
 
     useEffect(()=>{
         if(data) {
+            console.log("setting input:", data?.title);
             setInput(data.title);
         }
     },[data])

@@ -11,6 +11,7 @@ import stringToColor from "@/lib/stringToColor";
 import { useCreateBlockNote} from "@blocknote/react";
 import { BlockNoteView } from "@blocknote/shadcn";
 import TranslateDocument from "./TranslateDocument";
+import ChatToDocument from "./ChatToDocument";
 
 type EditorProps = {
     doc: Y.Doc;
@@ -20,14 +21,13 @@ type EditorProps = {
 
 function BlockNote({doc, provider, darkMode} : EditorProps) {
     const userInfo = useSelf((me) => me.info);
-
     const editor = useCreateBlockNote({
         collaboration: {
           provider,
           fragment: doc.getXmlFragment("document-store"),
           user: {
-            name: userInfo?.name ?? "Anonymous",
-            color: stringToColor(userInfo?.email ?? "anon@example.com"),
+            name: userInfo?.name,
+            color: stringToColor(userInfo?.email),
           },
         },
       });
@@ -49,6 +49,8 @@ function Editor() {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(()=>{
+
+        console.log("room changed:", room);
         
         const yDoc = new Y.Doc();
         const yProvider = new LiveblocksYjsProvider(room, yDoc);
@@ -83,6 +85,7 @@ function Editor() {
                 {/* TranslateDocument AI */}
                 <TranslateDocument doc={doc} />
                 {/* ChatToDocument AI */}
+                <ChatToDocument doc={doc} />
 
                 {/* Dark Mode */}
                 <Button className={style} onClick={() => setDarkMode(!darkMode)}>
