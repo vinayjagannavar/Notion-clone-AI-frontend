@@ -1,4 +1,4 @@
-import { Liveblocks } from "@Liveblocks/node";
+import { Liveblocks } from "@liveblocks/node";
 
 const key = process.env.LIVEBLOCKS_PRIVATE_KEY;
 
