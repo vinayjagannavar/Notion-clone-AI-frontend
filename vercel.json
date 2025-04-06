@@ -5,7 +5,7 @@
     },
     "functions": {
         "middleware": {
-            "runtime": "nodejs"
+            "runtime": "nodejs18.x"
         }
     }
 }
