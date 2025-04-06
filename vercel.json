@@ -1,0 +1,14 @@
+{
+    "build": {
+        "env": {
+            "NPM_FLAGS": "--legacy-peer-deps"
+        }
+    },
+    "functions": {
+        "api/**.js": {
+            "env": {
+                "NPM_FLAGS": "--legacy-peer-deps"
+            }
+        }
+    }
+}
