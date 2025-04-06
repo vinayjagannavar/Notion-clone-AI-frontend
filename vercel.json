@@ -1,14 +1,6 @@
 {
-    "build": {
-        "env": {
-            "NPM_FLAGS": "--legacy-peer-deps"
-        }
-    },
-    "functions": {
-        "api/**.js": {
-            "env": {
-                "NPM_FLAGS": "--legacy-peer-deps"
-            }
-        }
+    "buildCommand": "npm install --legacy-peer-deps && npm run build",
+    "env": {
+        "NPM_FLAGS": "--legacy-peer-deps"
     }
 }
