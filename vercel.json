@@ -2,10 +2,5 @@
     "buildCommand": "npm install --legacy-peer-deps && npm run build",
     "env": {
         "NPM_FLAGS": "--legacy-peer-deps"
-    },
-    "functions": {
-        "middleware": {
-            "runtime": "nodejs18.x"
-        }
     }
 }
